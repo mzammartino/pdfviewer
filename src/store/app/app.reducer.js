@@ -11,7 +11,7 @@ const initialState = {
   totalPages: 0,
   size: 0,
   loadedSize: -1,
-  zoom: 1,
+  zoom: 2,
 };
 
 export default (state = initialState, { type, payload }) => {

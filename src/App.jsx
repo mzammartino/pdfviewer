@@ -34,7 +34,7 @@ function App() {
       loadFile();
     } else {
       setTimeout(() => {
-        dispatch(setPDF('14.pdf'));
+        dispatch(setPDF('sample.pdf'));
       }, 2000);
     }
   }, [app.pdfUrl]);
