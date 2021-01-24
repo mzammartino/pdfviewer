@@ -2,9 +2,9 @@ import * as PDFjs from 'pdfjs-dist';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './App.scss';
-import Page from './components/page';
 import ProgressBar from './components/progressBar';
 import Toolbar from './components/toolbar';
+import Viewer from './components/viewer';
 import {
   setDocument,
   setLoaded, setLoadedSize, setPDF, setTotalSize,
@@ -34,7 +34,7 @@ function App() {
       loadFile();
     } else {
       setTimeout(() => {
-        dispatch(setPDF('A17_FlightPlan.pdf'));
+        dispatch(setPDF('14.pdf'));
       }, 2000);
     }
   }, [app.pdfUrl]);
@@ -48,10 +48,7 @@ function App() {
       <Toolbar />
       <div className="main">
         <div className="preview" />
-        <div className="view">
-          {Array.from(Array(app.document.numPages).keys())
-            .map((val) => <Page key={val} pageNumber={val + 1} />) }
-        </div>
+        <Viewer />
       </div>
     </div>
   );
