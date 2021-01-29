@@ -34,7 +34,7 @@ const Viewer = () => {
       pages.map((page, index) => {
         if (pages.length === index + 1) {
           return (
-            <div ref={lastPageElementRef} key={page._pageIndex}>
+            <div ref={lastPageElementRef} key={`${page._pageIndex}`}>
               <Page
                 page={page}
               />
@@ -44,7 +44,7 @@ const Viewer = () => {
 
         return (
           <div key={page._pageIndex}>
-            <Page page={page} key={page._pageIndex} />
+            <Page page={page} key={`${page._pageIndex}`} />
           </div>
         );
       })

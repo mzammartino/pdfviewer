@@ -21,7 +21,6 @@ const Page = ({ page }) => {
   }
 
   async function renderPage() {
-    console.log(page);
     const viewport = page.getViewport({ scale: zoom });
     const canvas = canvasRef.current;
     const context = canvas.getContext('2d');
@@ -31,15 +30,17 @@ const Page = ({ page }) => {
       canvasContext: context,
       viewport,
     }).promise;
-    Tesseract.recognize(canvas, 'eng', { logger: (m) => console.log(m) })
-      .then((t) => {
-        const { words } = t.data;
-        words.filter((word) => word.text.toLowerCase().match(/(more)/gm) || word.text.toLowerCase().match(/(small)/gm)).forEach((word) => {
-          drawRect(word.bbox);
-          console.log(word);
-        });
-      })
-      .catch((E) => console.error(E));
+    if (1 === '1') {
+      Tesseract.recognize(canvas, 'eng', { logger: (m) => console.log(m) })
+        .then((t) => {
+          const { words } = t.data;
+          words.filter((word) => word.text.toLowerCase().match(/(more)/gm) || word.text.toLowerCase().match(/(text)/gm)).forEach((word) => {
+            drawRect(word.bbox);
+            console.log(word);
+          });
+        })
+        .catch((E) => console.error(E));
+    }
   }
 
   useEffect(() => {

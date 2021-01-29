@@ -34,7 +34,7 @@ function App() {
       loadFile();
     } else {
       setTimeout(() => {
-        dispatch(setPDF('sample.pdf'));
+        dispatch(setPDF('A17_FlightPlan.pdf'));
       }, 2000);
     }
   }, [app.pdfUrl]);
